@@ -1,0 +1,18 @@
+﻿@{
+    int productCount = ViewBag.ProductCount;
+}
+
+<form asp-action="ConfirmOrder" method="post">
+    @for (int i = 0; i < productCount; i++)
+    {
+        <div>
+            <label>Назва товару @i</label>
+            <input name="products[@i].Name" />
+        </div>
+        <div>
+            <label>Кількість</label>
+            <input name="products[@i].Quantity" type="number" min="1" />
+        </div>
+    }
+    <button type="submit">Підтвердити замовлення</button>
+</form>
